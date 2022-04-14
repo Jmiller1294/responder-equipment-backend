@@ -1,10 +1,11 @@
 const app = require('./app');
 const http = require('http');
 
-//create server 
+//create server and specify port
 const server = http.createServer(app);
 const PORT = process.env.PORT || 8000;
 
+//function to start server
 function startServer() {
   server.listen(PORT, () => {
     console.log(`listening on ${PORT}...`)
@@ -13,16 +14,4 @@ function startServer() {
 
 startServer()
 
-let users = [
-  {
-    id: 1,
-    name: 'justin',
-  },
-  {
-    id: 2,
-    name: 'Gabriel',
-    age: 20
-  }
-]
 
-users.map(user => console.log(user.name));
