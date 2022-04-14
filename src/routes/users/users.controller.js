@@ -1,7 +1,15 @@
 const model = require('../../models/users.model');
 
-function httpgetAllUsers(req, res) {
+function httpGetAllUsers(req, res) {
   res.send(model);
 }
 
-module.exports = { httpgetAllUsers };
+function httpGetUser(req, res) {
+  const user = model.find(user => user.id === parseInt(req.params.id));
+  res.send(user);
+}
+
+module.exports = { 
+  httpGetAllUsers,
+  httpGetUser
+};
