@@ -4,12 +4,20 @@ function httpGetAllUsers(req, res) {
   res.send(model);
 }
 
-function httpGetUser(req, res) {
+function httpGetUserByID(req, res) {
   const user = model.find(user => user.id === parseInt(req.params.id));
   res.send(user);
 }
 
+function httpGetUsersByOrg(req, res) {
+  const users = model.filter(user => user.organizations === req.params.name);
+  res.send(users);
+}
+
+
 module.exports = { 
   httpGetAllUsers,
-  httpGetUser
+  httpGetUserByID,
+  httpGetUsersByOrg,
 };
+
