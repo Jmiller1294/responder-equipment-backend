@@ -14,10 +14,14 @@ function httpGetUsersByOrg(req, res) {
   res.send(users);
 }
 
+function httpLoginUser(req, res) {
+  
+}
 
 module.exports = { 
   httpGetAllUsers,
   httpGetUserByID,
   httpGetUsersByOrg,
+  httpLoginUser
 };
 

@@ -6,5 +6,6 @@ const usersRouter = express.Router();
 usersRouter.get('/', usersController.httpGetAllUsers);
 usersRouter.get('/:id', usersController.httpGetUserByID);
 usersRouter.get('/organizations/:name', usersController.httpGetUsersByOrg);
+usersRouter.post('/login', usersController.httpLoginUser);
 
 module.exports = usersRouter; 
