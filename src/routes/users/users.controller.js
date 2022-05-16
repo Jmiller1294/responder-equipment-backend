@@ -1,5 +1,6 @@
 const model = require('../../models/users.model');
 const adminModel = require('../../models/admin.model');
+const moderatorModel = require('../../models/moderators.model');
 
 function httpGetAllUsers(req, res) {
   res.send(model);
@@ -33,15 +34,30 @@ function httpLoginUser(req, res) {
 }
 
 function httpLoginAdmin(req, res) {
-  const admin = adminModel.find(admin => 
+  let admin = adminModel.find(admin => 
     admin.email === req.body.data.email
     && admin.password === req.body.data.password
   )
-
   if(admin) {
     res.send({ 
       loggedIn: true,
       admin: admin
+    });
+  }
+  else {
+    res.send(false);
+  }
+}
+
+function httpLoginModerator(req, res) {
+  let moderator = moderatorModel.find(moderator => 
+    moderator.email === req.body.data.email
+    && moderator.password === req.body.data.password
+  )
+  if(admin) {
+    res.send({ 
+      loggedIn: true,
+      moderator: moderator
     });
   }
   else {
@@ -54,6 +70,7 @@ module.exports = {
   httpGetUserByID,
   httpGetUsersByOrg,
   httpLoginUser,
-  httpLoginAdmin
+  httpLoginAdmin,
+  httpLoginModerator
 };
 

@@ -8,5 +8,6 @@ usersRouter.get('/:id', usersController.httpGetUserByID);
 usersRouter.get('/organizations/:name', usersController.httpGetUsersByOrg);
 usersRouter.post('/login', usersController.httpLoginUser);
 usersRouter.post('/admin-login', usersController.httpLoginAdmin);
+usersRouter.post('/moderator-login', usersController.httpLoginModerator);
 
 module.exports = usersRouter; 
